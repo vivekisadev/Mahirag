@@ -1,0 +1,1860 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Mahirag | Multimedia Agency</title>
+    <meta property="og:type" content="website" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta content="Webflow" name="generator" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/" rel="preconnect" />
+    <link
+      href="https://fonts.gstatic.com/"
+      rel="preconnect"
+      crossorigin="anonymous"
+    />
+    <script src="font.js" type="text/javascript"></script>
+    <script src="script.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      WebFont.load({
+        google: {
+          families: [
+            "Montserrat:100,100italic,200,200italic,300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic",
+            "Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic",
+            "PT Serif:400,400italic,700,700italic",
+            "Playfair Display:regular,700,900",
+            "Playfair Display SC:regular,700,900",
+            "Montserrat Alternates:100,200,regular,500,600,700,800,900",
+          ],
+        },
+      });
+    </script>
+    <script type="text/javascript">
+      !(function (o, c) {
+        var n = c.documentElement,
+          t = " w-mod-";
+        (n.className += t + "js"),
+          ("ontouchstart" in o ||
+            (o.DocumentTouch && c instanceof DocumentTouch)) &&
+            (n.className += t + "touch");
+      })(window, document);
+    </script>
+    <link
+      href="public/images/Mahirag-logo1.png"
+      rel="shortcut icon"
+      type="image/x-icon"
+    />
+    <link href="public/images/Mahirag-logo1.png" rel="apple-touch-icon" />
+
+    <style id="loader">
+      .loader {
+        z-index: 10000;
+        background-color: #f5f5f5;
+        position: fixed;
+        inset: 0;
+        padding: 20px;
+        display: block;
+        transform: translateY(0);
+      }
+
+      .loader.slide-up {
+        transform: translateY(-100%);
+        transition: transform 0.7s ease-in-out;
+      }
+
+      .loader_container {
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        position: absolute;
+        inset: 0;
+      }
+
+      .liquid-text {
+        font-family: "Lemon/Milk", sans-serif;
+        font-size: 2.5rem;
+        color: transparent;
+        display: flex;
+      }
+
+      .liquid-text span {
+        display: inline-block;
+        animation: liquidWave 1.6s infinite ease-in-out;
+        /* Loop animation */
+        animation-delay: calc(var(--i) * 0.1s);
+      }
+
+      /* Stop animation when slide-up starts */
+      .loader.slide-up .liquid-text span {
+        transform: translateY(0) scale(1);
+        /* Freeze at final state */
+        color: transparent;
+        /* Match final keyframe state */
+      }
+
+      @keyframes liquidWave {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+          color: transparent;
+        }
+
+        50% {
+          transform: translateY(-10px) scale(1);
+          color: #000000;
+          -webkit-text-stroke: 0;
+          text-shadow: 0 0 10px #050108, 0 0 20px #060208;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .liquid-text {
+          font-size: 1.5rem;
+        }
+      }
+    </style>
+
+    <style id="hs-style">
+      .horizontal-slideshow {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        max-width: 100%;
+        max-height: 100%;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        user-select: none;
+      }
+
+      .h-slideshow-container {
+        padding: 52px 0px;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+      }
+
+      .hs-slides {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        gap: 24px;
+        transform-style: preserve-3d;
+        cursor: grab;
+        touch-action: pan-y;
+        transition: transform 0.3s ease;
+      }
+
+      .hs-slides li {
+        flex-shrink: 0;
+        width: auto;
+        max-width: 80%;
+        height: auto;
+        max-height: 80%;
+        transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+      }
+
+      .hs-slides li.active {
+        transform: scale(1);
+        opacity: 1;
+        filter: blur(0);
+      }
+
+      .hs-slides li:not(.active) {
+        transform: scale(0.8);
+        opacity: 0.7;
+        filter: blur(5px);
+      }
+
+      .hs-video-container {
+        position: relative;
+        border-radius: 22px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #000;
+        box-shadow: 0 0 50px #ffffff54;
+      }
+
+      .hs-video-container video {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block;
+      }
+
+      .hs-play-button {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background-color: rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(25px);
+        border: none;
+        border-radius: 30px;
+        padding: 10px 30px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .h-slideshow-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        pointer-events: none;
+      }
+
+      .h-slideshow-controls button {
+        background-color: rgb(0, 0, 0);
+        border: none;
+        border-radius: 40px;
+        width: 42px;
+        height: 42px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: auto;
+        margin: 10px;
+      }
+
+      .h-slideshow-controls button:hover {
+        opacity: 0.8;
+      }
+
+      .h-slideshow-controls button img {
+        width: 34px;
+        height: 34px;
+      }
+    </style>
+
+    <style id="sf-video">
+      .slideshow {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        max-width: 100%;
+        max-height: 100%;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        user-select: none;
+      }
+
+      .sf-slideshow-container {
+        padding: 52px 0px;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: flex;
+      }
+
+      .sf-slides {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        gap: 24px;
+        transform-style: preserve-3d;
+        cursor: grab;
+        touch-action: pan-y;
+        transition: transform 0.3s ease;
+      }
+
+      .sf-slides li {
+        flex-shrink: 0;
+        width: auto;
+        max-width: 80%;
+        height: auto;
+        max-height: 80%;
+        transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+      }
+
+      .sf-slides li.active {
+        transform: scale(1);
+        opacity: 1;
+        filter: blur(0);
+      }
+
+      .sf-slides li:not(.active) {
+        transform: scale(0.8);
+        opacity: 0.7;
+        filter: blur(5px);
+      }
+
+      .sf-video-container {
+        position: relative;
+        border-radius: 22px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #000;
+        box-shadow: 0 0 50px #ffffff54;
+      }
+
+      .sf-video-container video {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        display: block;
+      }
+
+      .sf-play-button {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        background-color: rgba(255, 255, 255, 0.07);
+        backdrop-filter: blur(25px);
+        border: none;
+        border-radius: 30px;
+        padding: 10px 30px;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .sf-slideshow-controls {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        pointer-events: none;
+      }
+
+      .sf-slideshow-controls button {
+        background-color: rgb(0, 0, 0);
+        border: none;
+        border-radius: 40px;
+        width: 42px;
+        height: 42px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: auto;
+        margin: 10px;
+      }
+
+      .sf-slideshow-controls button:hover {
+        opacity: 0.8;
+      }
+
+      .sf-slideshow-controls button img {
+        width: 34px;
+        height: 34px;
+      }
+    </style>
+  </head>
+
+  <body class="body-2">
+    <div class="loader">
+      <div class="loader_container">
+        <div class="liquid-text">
+          <span style="--i: 1">M</span>
+          <span style="--i: 2">a</span>
+          <span style="--i: 3">h</span>
+          <span style="--i: 4">i</span>
+          <span style="--i: 5">r</span>
+          <span style="--i: 6">a</span>
+          <span style="--i: 7">g</span>
+        </div>
+      </div>
+    </div>
+    <div
+      data-collapse="medium"
+      data-animation="default"
+      data-duration="400"
+      data-easing="ease"
+      data-easing2="ease"
+      role="banner"
+      class="navigation w-nav"
+    >
+      <div class="navigation-container">
+        <a href="#" class="brand w-nav-brand"
+          ><img
+            src="public/images/Mahirag-nav-logo.png"
+            height="50"
+            loading="lazy"
+            width="200"
+            alt=""
+        /></a>
+        <nav role="navigation" class="nav-menu-2 w-nav-menu">
+          <a href="#Services" class="nav-link w-nav-link" data-index="1"
+            >Our experties
+          </a>
+
+          <a href="#lf-form" class="nav-link w-nav-link" data-index="1"
+            >Long -Form
+          </a>
+          <a href="#sf-form" class="nav-link w-nav-link" data-index="1"
+            >Short - Form</a
+          >
+          <a href="threed.html" class="nav-link w-nav-link" data-index="1"
+            >3-D</a
+          >
+          <a href="team.html" class="nav-link w-nav-link" data-index="1"
+            >Our Team</a
+          >
+          <a href="#About" class="nav-link w-nav-link" data-index="1">ABOUT</a>
+          <div class="div-block-27">
+            <div class="div-block-35"></div>
+          </div>
+        </nav>
+        <div class="menu-button w-nav-button">
+          <div class="icon w-icon-nav-menu"></div>
+        </div>
+        <a href="#Contact" class="main-button-n w-inline-block">
+          <div class="button-bg">
+            <div class="button-inside">Socials</div>
+          </div>
+          <div class="border-gradient"></div>
+          <div class="w-embed">
+            <style>
+              @keyframes spin {
+                0% {
+                  transform: rotate(0deg);
+                }
+
+                100% {
+                  transform: rotate(360deg);
+                }
+              }
+
+              .border-gradient {
+                animation: spin 3s linear infinite;
+                background: conic-gradient(
+                  from 0 at 50% 50%,
+                  rgba(255, 255, 255, 0.5) 0deg,
+                  rgba(255, 255, 255, 0) 60deg,
+                  rgba(255, 255, 255, 0) 310deg,
+                  rgba(255, 255, 255, 0.5) 360deg
+                );
+              }
+
+              .main-button-n:hover .border-gradient {
+                animation-duration: 3s;
+                animation-play-state: running;
+              }
+            </style>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div
+      id="hero"
+      class="background-video w-background-video w-background-video-atom"
+    >
+      <video
+        autoplay=""
+        loop=""
+        muted=""
+        playsinline=""
+        data-wf-ignore="true"
+        data-object-fit="cover"
+      >
+        <source src="public/mahirag-cover.webm" data-wf-ignore="true" />
+      </video>
+    </div>
+    <div class="section-header hero">
+      <div class="container-large">
+        <div class="div-block-38">
+          <div class="header-wrap-centre">
+            <div class="heading-wrapper">
+              <div class="hero-label">
+                <div class="overline-l white">Multimedia Agency</div>
+              </div>
+              <div class="hero-title">
+                <h1 class="h1-heading">
+                  Where visionaries <br />hire visionaries.
+                </h1>
+              </div>
+              <div class="cta-buttons">
+                <div class="glowing-wrapper glowing-wrapper-active">
+                  <div class="styles---glowing-button w-embed">
+                    <style>
+                      * {
+                        -webkit-font-smoothing: antialiased;
+                        -moz-osx-font-smoothing: grayscale;
+                        font-smoothing: antialiased;
+                        text-rendering: optimizeLegibility;
+                      }
+
+                      html {
+                        font-size: calc(0.625rem + 0.41666666666666663vw);
+                      }
+
+                      @media screen and (max-width: 1920px) {
+                        html {
+                          font-size: calc(0.625rem + 0.41666666666666674vw);
+                        }
+                      }
+
+                      @media screen and (max-width: 1440px) {
+                        html {
+                          font-size: calc(
+                            0.8126951092611863rem + 0.20811654526534862vw
+                          );
+                        }
+                      }
+
+                      @media screen and (max-width: 479px) {
+                        html {
+                          font-size: calc(
+                            0.7494769874476988rem + 0.8368200836820083vw
+                          );
+                        }
+                      }
+
+                      .glowing-wrapper-button:after {
+                        background: radial-gradient(
+                          85% 120% at 50% 120%,
+                          rgba(255, 255, 255, 0.24) 0%,
+                          rgba(255, 255, 255, 0) 100%
+                        );
+                        border-radius: 999px;
+                        content: "";
+                        height: calc(100% + 4px);
+                        left: -2px;
+                        opacity: 0;
+                        position: absolute;
+                        top: -2px;
+                        transition: 1s all;
+                        width: calc(100% + 4px);
+                      }
+
+                      .glowing-wrapper-button:hover:after {
+                        opacity: 0.7;
+                      }
+
+                      .glowing-wrapper-active .glowing-wrapper-animations,
+                      .glowing-wrapper-active .glowing-wrapper-borders-masker {
+                        opacity: 1;
+                      }
+
+                      .glowing-wrapper-animations:before,
+                      .glowing-wrapper-borders:before {
+                        content: "";
+                        float: left;
+                        padding-top: 100%;
+                      }
+
+                      .glowing-wrapper-animations:after,
+                      .glowing-wrapper-borders:after {
+                        clear: both;
+                        content: "";
+                        display: block;
+                      }
+
+                      .glowing-wrapper-animations {
+                        pointer-events: none;
+                      }
+
+                      .glowing-wrapper-animations * {
+                        height: 100%;
+                        left: 0;
+                        position: absolute;
+                        top: 0;
+                        width: 100%;
+                      }
+
+                      .glowing-wrapper-borders,
+                      .glowing-wrapper-glow,
+                      .glowing-wrapper-mask {
+                        animation: borderTurn 2.5s infinite linear;
+                        background-image: conic-gradient(
+                          from 0 at 50% 50%,
+                          rgba(255, 255, 255, 0.5) 0deg,
+                          rgba(255, 255, 255, 0) 60deg,
+                          rgba(255, 255, 255, 0) 310deg,
+                          rgba(255, 255, 255, 0.5) 360deg
+                        );
+                        background-position: center center;
+                        background-repeat: no-repeat;
+                        background-size: cover;
+                      }
+
+                      .glowing-wrapper-mask-wrapper {
+                        -webkit-mask: url("data:image/svg+xml,url('data:image/svg+xml,%253Csvg width='28' height='24' viewBox='0 0 28 24' fill='none' xmlns='http://www.w3.org/2000/svg'%253E%253Crect width='28' height='24' fill='black'/%253E%253C/svg%253E%250A');");
+                        mask: url("data:image/svg+xml,url('data:image/svg+xml,%253Csvg width='28' height='24' viewBox='0 0 28 24' fill='none' xmlns='http://www.w3.org/2000/svg'%253E%253Crect width='28' height='24' fill='black'/%253E%253C/svg%253E%250A');");
+                        mask-repeat: repeat;
+                        -webkit-mask-size: auto;
+                        mask-size: auto;
+                      }
+
+                      .glowing-wrapper-borders {
+                        animation-name: borderTurnWithTranslate;
+                      }
+
+                      .glowing-wrapper-borders-masker {
+                        content: "";
+                        inset: 0;
+                        -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                          linear-gradient(#fff 0 0);
+                        mask: linear-gradient(#fff 0 0) content-box,
+                          linear-gradient(#fff 0 0);
+                        mask-composite: xor;
+                        -webkit-mask-composite: xor;
+                        mask-composite: exclude;
+                        pointer-events: none;
+                      }
+
+                      @keyframes borderTurn {
+                        0% {
+                          transform: rotate(0);
+                        }
+
+                        to {
+                          transform: rotate(360deg);
+                        }
+                      }
+
+                      @keyframes borderTurnWithTranslate {
+                        0% {
+                          transform: translate(-50%, -50%) rotate(0);
+                        }
+
+                        to {
+                          transform: translate(-50%, -50%) rotate(360deg);
+                        }
+                      }
+                    </style>
+                  </div>
+                  <div class="glowing-wrapper-animations">
+                    <div class="glowing-wrapper-glow"></div>
+                    <div class="glowing-wrapper-mask-wrapper">
+                      <div class="glowing-wrapper-mask"></div>
+                    </div>
+                  </div>
+                  <div class="glowing-wrapper-borders-masker">
+                    <div class="glowing-wrapper-borders"></div>
+                  </div>
+                </div>
+                <a
+                  href="mailto:info@mahirag.xyz"
+                  target="_blank"
+                  class="main-button-n w-inline-block"
+                >
+                  <div class="button-bg">
+                    <div class="button-inside">Reach us</div>
+                  </div>
+                  <div class="border-gradient"></div>
+                  <div class="w-embed">
+                    <style>
+                      @keyframes spin {
+                        0% {
+                          transform: rotate(0deg);
+                        }
+
+                        100% {
+                          transform: rotate(360deg);
+                        }
+                      }
+
+                      .border-gradient {
+                        animation: spin 3s linear infinite;
+                        background: conic-gradient(
+                          from 0 at 50% 50%,
+                          rgba(255, 255, 255, 0.5) 0deg,
+                          rgba(255, 255, 255, 0) 60deg,
+                          rgba(255, 255, 255, 0) 310deg,
+                          rgba(255, 255, 255, 0.5) 360deg
+                        );
+                      }
+
+                      .main-button-n:hover .border-gradient {
+                        animation-duration: 3s;
+                        animation-play-state: running;
+                      }
+                    </style>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="f-container-regular"></div>
+        </div>
+      </div>
+    </div>
+    <div class="f-section-regular copy">
+      <div class="f-container-regular">
+        <div
+          id="w-node-da50f1b7-d080-a3cd-44af-438b35cead96-1b1f88fb"
+          class="f-content-text-wrapper"
+        >
+          <div class="f-margin-bottom-08">
+            <h3 class="f-h3-heading">
+              Rallying diverse teams, instilling a growth mindset, <br />and
+              turning ambitious visions into tangible realities.<br /><span
+                class="text-span"
+                >Let&#x27;s roll up our sleeves and create something
+                extraordinary!</span
+              >
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section id="Services" class="tab-section-2">
+      <div class="tabs-container">
+        <div class="heading-wrapper services">
+          <div class="overline-l white">Our Experties</div>
+          <div class="bottom-margin-16">
+            <h1 class="f-h3-heading section">Your one stop shop</h1>
+          </div>
+          <div class="f-paragraph-large">Your ideas, our minds.</div>
+        </div>
+        <div
+          data-duration-in="300"
+          data-duration-out="100"
+          data-current="Tab 6"
+          data-easing="ease"
+          class="tabs w-tabs"
+        >
+          <div class="tabs-menu w-tab-menu">
+            <a
+              data-w-tab="Tab 2"
+              class="feature-tab-link w-inline-block w-tab-link"
+            >
+              <div>Long-form Videos</div> </a
+            ><a
+              data-w-tab="Tab 4"
+              class="feature-tab-link w-inline-block w-tab-link"
+            >
+              <div>Short-form Videos</div> </a
+            ><a
+              data-w-tab="Tab 5"
+              class="feature-tab-link w-inline-block w-tab-link"
+            >
+              <div>3d Modeling</div> </a
+            ><a
+              data-w-tab="Tab 6"
+              class="feature-tab-link w-inline-block w-tab-link w--current"
+            >
+              <div>Website Development</div>
+            </a>
+          </div>
+          <div class="tabs-content w-tab-content">
+            <div data-w-tab="Tab 2" class="tab-pane w-tab-pane">
+              <div class="tab-wrapper">
+                <div class="tab-image">
+                  <img
+                    sizes="100vw"
+                    srcset="
+                      public/images/lf-img/lf-500w.png     500w,
+                      public/images/lf-img/lf-3200w.png   3200w,
+                      public/images/lf-img/lf-13735w.png 13735w
+                    "
+                    alt=""
+                    src="public/images/lf.png"
+                    loading="lazy"
+                    class="image-cover"
+                  />
+                </div>
+                <div class="w-layout-grid check-grid">
+                  <div class="check-wrapper">
+                    <div class="icon"></div>
+                    <div class="check-text">Long form video editing</div>
+                  </div>
+                  <div class="check-wrapper">
+                    <div class="icon"></div>
+                    <div class="check-text">
+                      Skilled in Premiere Pro, After Effects, and DaVinci
+                      resolve. Resolve
+                    </div>
+                  </div>
+                  <div class="check-wrapper">
+                    <div class="icon"></div>
+                    <div class="check-text">
+                      we create engaging video edits using transitions,
+                      subtitles, masking, rotoscoping, compositions, animation,
+                      and motion graphics.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div data-w-tab="Tab 4" class="tab-pane w-tab-pane">
+              <div class="tab-wrapper">
+                <div class="tab-image">
+                  <img
+                    sizes="100vw"
+                    srcset="
+                      public/images/sf-img/sf-500w.png     500w,
+                      public/images/sf-img/sf-3200w.png   3200w,
+                      public/images/sf-img/sf-14920w.png 14920w
+                    "
+                    alt=""
+                    src="public/images/sf-img/sf.png"
+                    loading="lazy"
+                    class="image-cover"
+                  />
+                </div>
+                <div class="w-layout-grid check-grid">
+                  <div class="check-wrapper">
+                    <div class="icon"></div>
+                    <div class="check-text">
+                      Skilled in short-form video editing like reels and shorts.
+                    </div>
+                  </div>
+                  <div class="check-wrapper">
+                    <div class="icon"></div>
+                    <div class="check-text">
+                      Provide subtitles, color effects, and music tracks.
+                    </div>
+                  </div>
+                  <div class="check-wrapper">
+                    <div class="icon"></div>
+                    <div class="check-text">
+                      Provide sample videos with the script.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div data-w-tab="Tab 5" class="tab-pane w-tab-pane">
+              <div class="tab-wrapper">
+                <div class="tab-image">
+                  <img
+                    sizes="100vw"
+                    srcset="
+                      public/images/3d-img/3d-500w.png   500w,
+                      public/images/3d-img/3d-800w.png   800w,
+                      public/images/3d-img/3d-1080w.png 1080w,
+                      public/images/3d-img/3d-1600w.png 1600w,
+                      public/images/3d-img/3d-1784w.png 1784w
+                    "
+                    alt=""
+                    src="public/images/3d-img/3d.png"
+                    loading="lazy"
+                    class="image-cover"
+                  />
+                </div>
+              </div>
+              <div class="tab-wrapper">
+                <div class="w-layout-grid check-grid">
+                  <div class="check-wrapper">
+                    <div class="icon"></div>
+                    <div class="check-text">3d modeling and animation</div>
+                  </div>
+                  <div class="check-wrapper">
+                    <div class="icon"></div>
+                    <div class="check-text">
+                      Uses blender for 3d modeling and unreal for game
+                      development.
+                    </div>
+                  </div>
+                  <div class="check-wrapper">
+                    <div class="icon"></div>
+                    <div class="check-text"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div data-w-tab="Tab 6" class="tab-pane w-tab-pane w--tab-active">
+              <div class="tab-wrapper">
+                <div class="tab-image">
+                  <img
+                    sizes="(max-width: 767px) 15.09375px, (max-width: 991px) 2vw, (max-width: 1279px) 15.09375px, 1vw"
+                    height="10"
+                    alt=""
+                    src="public/images/wd-img/wd.png"
+                    loading="lazy"
+                    srcset="
+                      public/images/wd-img/wd-500w.png     500w,
+                      public/images/wd-img/wd-3200w.png   3200w,
+                      public/images/wd-img/wd-12987w.png 12987w
+                    "
+                    class="image-cover"
+                  />
+                </div>
+                <div class="w-layout-grid check-grid">
+                  <div class="check-wrapper">
+                    <div class="icon"></div>
+                    <div class="check-text">
+                      Websites made with your preferences.
+                    </div>
+                  </div>
+                  <div class="check-wrapper">
+                    <div class="icon"></div>
+                    <div class="check-text">Effective and faster ui.</div>
+                  </div>
+                  <div class="check-wrapper">
+                    <div class="icon"></div>
+                    <div class="check-text">
+                      Tons of animations, transitions, and effects.<br />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <br />
+
+    <div class="heading-wrapper services">
+      <div class="overline-l white">Video - Editing Content</div>
+      <div class="bottom-margin-16">
+        <h1 class="f-h3-heading section">Long - Form Videos</h1>
+      </div>
+      <div class="f-paragraph-large">Your ideas, our minds.</div>
+    </div>
+
+    <section id="lf-form" class="horizontal-slideshow">
+      <div class="h-slideshow-container">
+        <ul class="hs-slides">
+          <li>
+            <div class="hs-video-container">
+              <video
+                src="public/long-form/video1.mp4"
+                loop
+                muted
+                playsinline
+              ></video>
+              <button class="hs-play-button" aria-label="Play video">
+                Play
+              </button>
+            </div>
+          </li>
+          <li>
+            <div class="hs-video-container">
+              <video
+                src="public/long-form/video2.mp4"
+                loop
+                muted
+                playsinline
+              ></video>
+              <button class="hs-play-button" aria-label="Play video">
+                Play
+              </button>
+            </div>
+          </li>
+          <li>
+            <div class="hs-video-container">
+              <video
+                src="public/long-form/video3.mp4"
+                loop
+                muted
+                playsinline
+              ></video>
+              <button class="hs-play-button" aria-label="Play video">
+                Play
+              </button>
+            </div>
+          </li>
+          <li>
+            <div class="hs-video-container">
+              <video
+                src="public/long-form/video4.mp4"
+                loop
+                muted
+                playsinline
+              ></video>
+              <button class="hs-play-button" aria-label="Play video">
+                Play
+              </button>
+            </div>
+          </li>
+          <li>
+            <div class="hs-video-container">
+              <video
+                src="public/long-form/video5.mp4"
+                loop
+                muted
+                playsinline
+              ></video>
+              <button class="hs-play-button" aria-label="Play video">
+                Play
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <fieldset
+        class="h-slideshow-controls"
+        aria-label="Slideshow pagination controls"
+      >
+        <button type="button" class="hs-prev-button" aria-label="Previous">
+          <img
+            src="public/images/prev.svg"
+            alt="Previous"
+            width="34"
+            height="34"
+          />
+        </button>
+        <button type="button" class="hs-next-button" aria-label="Next">
+          <img src="public/images/next.svg" alt="Next" width="34" height="34" />
+        </button>
+      </fieldset>
+    </section>
+
+    <br />
+
+    <div class="heading-wrapper services">
+      <div class="overline-l white">Video - Editing Content</div>
+      <div class="bottom-margin-16">
+        <h1 class="f-h3-heading section">Short - Form Videos</h1>
+      </div>
+      <div class="f-paragraph-large">Your ideas, our minds.</div>
+    </div>
+
+    <section id="sf-form" class="slideshow">
+      <div class="sf-slideshow-container">
+        <ul class="sf-slides">
+          <li>
+            <div class="sf-video-container">
+              <video
+                src="public/short-form/shortsample1.mp4"
+                loop
+                muted
+                playsinline
+              ></video>
+              <button class="sf-play-button" aria-label="Play video">
+                Play
+              </button>
+            </div>
+          </li>
+          <li>
+            <div class="sf-video-container">
+              <video
+                src="public/short-form/shortsample2.mp4"
+                loop
+                muted
+                playsinline
+              ></video>
+              <button class="sf-play-button" aria-label="Play video">
+                Play
+              </button>
+            </div>
+          </li>
+          <li>
+            <div class="sf-video-container">
+              <video
+                src="public/short-form/shortsample3.mp4"
+                loop
+                muted
+                playsinline
+              ></video>
+              <button class="sf-play-button" aria-label="Play video">
+                Play
+              </button>
+            </div>
+          </li>
+          <li>
+            <div class="sf-video-container">
+              <video
+                src="public/short-form/shortsample1.mp4"
+                loop
+                muted
+                playsinline
+              ></video>
+              <button class="sf-play-button" aria-label="Play video">
+                Play
+              </button>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <fieldset
+        class="sf-slideshow-controls"
+        aria-label="Slideshow pagination controls"
+      >
+        <button type="button" class="sf-prev-button" aria-label="Previous">
+          <img
+            src="public/images/prev.svg"
+            alt="Previous"
+            width="38"
+            height="38"
+          />
+        </button>
+        <button type="button" class="sf-next-button" aria-label="Next">
+          <img src="public/images/next.svg" alt="Next" width="38" height="38" />
+        </button>
+      </fieldset>
+    </section>
+
+    <section id="About" class="f-section-regular about">
+      <div class="f-container-regular">
+        <div class="w-layout-grid f-grid-two-column about">
+          <div
+            id="w-node-acdda78d-7c82-de00-a9d3-ff1094d3e29b-1b1f88fb"
+            class="f-content-image-wrapper"
+          >
+            <img
+              src="public/images/aboutus.png"
+              loading="lazy"
+              srcset="
+                public/images/aboutus.png  500w,
+                public/images/aboutus.png  800w,
+                public/images/aboutus.png 1080w,
+                public/images/aboutus.png 1600w,
+                public/images/aboutus.png 2000w,
+                public/images/aboutus.png 2600w,
+                public/images/aboutus.png 3200w,
+                public/images/aboutus.png 3559w
+              "
+              sizes="(max-width: 3559px) 100vw, 3559px"
+              alt=""
+              class="f-image-cover"
+            />
+          </div>
+          <div
+            id="w-node-acdda78d-7c82-de00-a9d3-ff1094d3e29d-1b1f88fb"
+            class="f-content-text-wrapper"
+          >
+            <div class="f-margin-bottom-08">
+              <div class="overline-l left white">about us</div>
+            </div>
+            <div class="f-margin-bottom-16">
+              <h3 class="f-h3-heading section">What&#x27;s Mahirag? &</h3>
+              <h3 class="f-h3-heading section">What do they do?</h3>
+            </div>
+            <p class="f-paragraph-large about">
+              Welcome to MAHIRAG, not just a freelancing platform, but a
+              creative powerhouse where brands meet brilliance and ideas turn
+              into art.
+              <br />From the rhythmic cuts of a perfectly edited video, to the
+              stroke of a bold graphic, to the soul in a script or the texture
+              of a voice, every project here is powered by freelancers who live
+              and breathe creativity. <br /><br />We’ve built a space for
+              dreamers, doers, and digital creators, where professionalism meets
+              imagination, and clients don’t just get work, they get wow.
+            </p>
+            <div class="f-header-button-wrap">
+              <a
+                href="mailto:info@mahirag.xyz"
+                target="_blank"
+                class="main-button-n w-inline-block"
+              >
+                <div class="button-bg">
+                  <div class="button-inside">Let's Connect</div>
+                </div>
+                <div class="border-gradient"></div>
+                <div class="w-embed">
+                  <style>
+                    @keyframes spin {
+                      0% {
+                        transform: rotate(0deg);
+                      }
+
+                      100% {
+                        transform: rotate(360deg);
+                      }
+                    }
+
+                    .border-gradient {
+                      animation: spin 3s linear infinite;
+                      background: conic-gradient(
+                        from 0 at 50% 50%,
+                        rgba(255, 255, 255, 0.5) 0deg,
+                        rgba(255, 255, 255, 0) 60deg,
+                        rgba(255, 255, 255, 0) 310deg,
+                        rgba(255, 255, 255, 0.5) 360deg
+                      );
+                    }
+
+                    .main-button-n:hover .border-gradient {
+                      animation-duration: 3s;
+                      animation-play-state: running;
+                    }
+                  </style>
+                </div>
+              </a>
+              <div class="glowing-wrapper glowing-wrapper-active">
+                <div class="styles---glowing-button w-embed">
+                  <style>
+                    * {
+                      -webkit-font-smoothing: antialiased;
+                      -moz-osx-font-smoothing: grayscale;
+                      font-smoothing: antialiased;
+                      text-rendering: optimizeLegibility;
+                    }
+
+                    html {
+                      font-size: calc(0.625rem + 0.41666666666666663vw);
+                    }
+
+                    @media screen and (max-width: 1920px) {
+                      html {
+                        font-size: calc(0.625rem + 0.41666666666666674vw);
+                      }
+                    }
+
+                    @media screen and (max-width: 1440px) {
+                      html {
+                        font-size: calc(
+                          0.8126951092611863rem + 0.20811654526534862vw
+                        );
+                      }
+                    }
+
+                    @media screen and (max-width: 479px) {
+                      html {
+                        font-size: calc(
+                          0.7494769874476988rem + 0.8368200836820083vw
+                        );
+                      }
+                    }
+
+                    .glowing-wrapper-button:after {
+                      background: radial-gradient(
+                        85% 120% at 50% 120%,
+                        rgba(255, 255, 255, 0.24) 0%,
+                        rgba(255, 255, 255, 0) 100%
+                      );
+                      border-radius: 999px;
+                      content: "";
+                      height: calc(100% + 4px);
+                      left: -2px;
+                      opacity: 0;
+                      position: absolute;
+                      top: -2px;
+                      transition: 1s all;
+                      width: calc(100% + 4px);
+                    }
+
+                    .glowing-wrapper-button:hover:after {
+                      opacity: 0.7;
+                    }
+
+                    .glowing-wrapper-active .glowing-wrapper-animations,
+                    .glowing-wrapper-active .glowing-wrapper-borders-masker {
+                      opacity: 1;
+                    }
+
+                    .glowing-wrapper-animations:before,
+                    .glowing-wrapper-borders:before {
+                      content: "";
+                      float: left;
+                      padding-top: 100%;
+                    }
+
+                    .glowing-wrapper-animations:after,
+                    .glowing-wrapper-borders:after {
+                      clear: both;
+                      content: "";
+                      display: block;
+                    }
+
+                    .glowing-wrapper-animations {
+                      pointer-events: none;
+                    }
+
+                    .glowing-wrapper-animations * {
+                      height: 100%;
+                      left: 0;
+                      position: absolute;
+                      top: 0;
+                      width: 100%;
+                    }
+
+                    .glowing-wrapper-borders,
+                    .glowing-wrapper-glow,
+                    .glowing-wrapper-mask {
+                      animation: borderTurn 2.5s infinite linear;
+                      background-image: conic-gradient(
+                        from 0 at 50% 50%,
+                        rgba(255, 255, 255, 0.5) 0deg,
+                        rgba(255, 255, 255, 0) 60deg,
+                        rgba(255, 255, 255, 0) 310deg,
+                        rgba(255, 255, 255, 0.5) 360deg
+                      );
+                      background-position: center center;
+                      background-repeat: no-repeat;
+                      background-size: cover;
+                    }
+
+                    .glowing-wrapper-mask-wrapper {
+                      -webkit-mask: url("data:image/svg+xml,url('data:image/svg+xml,%253Csvg width='28' height='24' viewBox='0 0 28 24' fill='none' xmlns='http://www.w3.org/2000/svg'%253E%253Crect width='28' height='24' fill='black'/%253E%253C/svg%253E%250A');");
+                      mask: url("data:image/svg+xml,url('data:image/svg+xml,%253Csvg width='28' height='24' viewBox='0 0 28 24' fill='none' xmlns='http://www.w3.org/2000/svg'%253E%253Crect width='28' height='24' fill='black'/%253E%253C/svg%253E%250A');");
+                      mask-repeat: repeat;
+                      -webkit-mask-size: auto;
+                      mask-size: auto;
+                    }
+
+                    .glowing-wrapper-borders {
+                      animation-name: borderTurnWithTranslate;
+                    }
+
+                    .glowing-wrapper-borders-masker {
+                      content: "";
+                      inset: 0;
+                      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                        linear-gradient(#fff 0 0);
+                      mask: linear-gradient(#fff 0 0) content-box,
+                        linear-gradient(#fff 0 0);
+                      mask-composite: xor;
+                      -webkit-mask-composite: xor;
+                      mask-composite: exclude;
+                      pointer-events: none;
+                    }
+
+                    @keyframes borderTurn {
+                      0% {
+                        transform: rotate(0);
+                      }
+
+                      to {
+                        transform: rotate(360deg);
+                      }
+                    }
+
+                    @keyframes borderTurnWithTranslate {
+                      0% {
+                        transform: translate(-50%, -50%) rotate(0);
+                      }
+
+                      to {
+                        transform: translate(-50%, -50%) rotate(360deg);
+                      }
+                    }
+                  </style>
+                </div>
+                <div class="glowing-wrapper-animations">
+                  <div class="glowing-wrapper-glow"></div>
+                  <div class="glowing-wrapper-mask-wrapper">
+                    <div class="glowing-wrapper-mask"></div>
+                  </div>
+                </div>
+                <div class="glowing-wrapper-borders-masker">
+                  <div class="glowing-wrapper-borders"></div>
+                </div>
+              </div>
+              <div class="glowing-wrapper glowing-wrapper-active">
+                <div class="styles---glowing-button w-embed">
+                  <style>
+                    * {
+                      -webkit-font-smoothing: antialiased;
+                      -moz-osx-font-smoothing: grayscale;
+                      font-smoothing: antialiased;
+                      text-rendering: optimizeLegibility;
+                    }
+
+                    html {
+                      font-size: calc(0.625rem + 0.41666666666666663vw);
+                    }
+
+                    @media screen and (max-width: 1920px) {
+                      html {
+                        font-size: calc(0.625rem + 0.41666666666666674vw);
+                      }
+                    }
+
+                    @media screen and (max-width: 1440px) {
+                      html {
+                        font-size: calc(
+                          0.8126951092611863rem + 0.20811654526534862vw
+                        );
+                      }
+                    }
+
+                    @media screen and (max-width: 479px) {
+                      html {
+                        font-size: calc(
+                          0.7494769874476988rem + 0.8368200836820083vw
+                        );
+                      }
+                    }
+
+                    .glowing-wrapper-button:after {
+                      background: radial-gradient(
+                        85% 120% at 50% 120%,
+                        rgba(255, 255, 255, 0.24) 0%,
+                        rgba(255, 255, 255, 0) 100%
+                      );
+                      border-radius: 999px;
+                      content: "";
+                      height: calc(100% + 4px);
+                      left: -2px;
+                      opacity: 0;
+                      position: absolute;
+                      top: -2px;
+                      transition: 1s all;
+                      width: calc(100% + 4px);
+                    }
+
+                    .glowing-wrapper-button:hover:after {
+                      opacity: 0.7;
+                    }
+
+                    .glowing-wrapper-active .glowing-wrapper-animations,
+                    .glowing-wrapper-active .glowing-wrapper-borders-masker {
+                      opacity: 1;
+                    }
+
+                    .glowing-wrapper-animations:before,
+                    .glowing-wrapper-borders:before {
+                      content: "";
+                      float: left;
+                      padding-top: 100%;
+                    }
+
+                    .glowing-wrapper-animations:after,
+                    .glowing-wrapper-borders:after {
+                      clear: both;
+                      content: "";
+                      display: block;
+                    }
+
+                    .glowing-wrapper-animations {
+                      pointer-events: none;
+                    }
+
+                    .glowing-wrapper-animations * {
+                      height: 100%;
+                      left: 0;
+                      position: absolute;
+                      top: 0;
+                      width: 100%;
+                    }
+
+                    .glowing-wrapper-borders,
+                    .glowing-wrapper-glow,
+                    .glowing-wrapper-mask {
+                      animation: borderTurn 2.5s infinite linear;
+                      background-image: conic-gradient(
+                        from 0 at 50% 50%,
+                        rgba(255, 255, 255, 0.5) 0deg,
+                        rgba(255, 255, 255, 0) 60deg,
+                        rgba(255, 255, 255, 0) 310deg,
+                        rgba(255, 255, 255, 0.5) 360deg
+                      );
+                      background-position: center center;
+                      background-repeat: no-repeat;
+                      background-size: cover;
+                    }
+
+                    .glowing-wrapper-mask-wrapper {
+                      -webkit-mask: url("data:image/svg+xml,url('data:image/svg+xml,%253Csvg width='28' height='24' viewBox='0 0 28 24' fill='none' xmlns='http://www.w3.org/2000/svg'%253E%253Crect width='28' height='24' fill='black'/%253E%253C/svg%253E%250A');");
+                      mask: url("data:image/svg+xml,url('data:image/svg+xml,%253Csvg width='28' height='24' viewBox='0 0 28 24' fill='none' xmlns='http://www.w3.org/2000/svg'%253E%253Crect width='28' height='24' fill='black'/%253E%253C/svg%253E%250A');");
+                      mask-repeat: repeat;
+                      -webkit-mask-size: auto;
+                      mask-size: auto;
+                    }
+
+                    .glowing-wrapper-borders {
+                      animation-name: borderTurnWithTranslate;
+                    }
+
+                    .glowing-wrapper-borders-masker {
+                      content: "";
+                      inset: 0;
+                      -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                        linear-gradient(#fff 0 0);
+                      mask: linear-gradient(#fff 0 0) content-box,
+                        linear-gradient(#fff 0 0);
+                      mask-composite: xor;
+                      -webkit-mask-composite: xor;
+                      mask-composite: exclude;
+                      pointer-events: none;
+                    }
+
+                    @keyframes borderTurn {
+                      0% {
+                        transform: rotate(0);
+                      }
+
+                      to {
+                        transform: rotate(360deg);
+                      }
+                    }
+
+                    @keyframes borderTurnWithTranslate {
+                      0% {
+                        transform: translate(-50%, -50%) rotate(0);
+                      }
+
+                      to {
+                        transform: translate(-50%, -50%) rotate(360deg);
+                      }
+                    }
+                  </style>
+                </div>
+                <div class="glowing-wrapper-animations">
+                  <div class="glowing-wrapper-glow"></div>
+                  <div class="glowing-wrapper-mask-wrapper">
+                    <div class="glowing-wrapper-mask"></div>
+                  </div>
+                </div>
+                <div class="glowing-wrapper-borders-masker">
+                  <div class="glowing-wrapper-borders"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="Contact" class="section">
+      <div class="container-5">
+        <div class="form-base-fizz">
+          <div class="w-layout-grid form-grid-wave">
+            <div class="column">
+              <h1 class="f-h3-heading section">Let’s talk!</h1>
+              <p class="paragraph-regular-2">
+                Ask us anything or just say hi 🖐
+              </p>
+              <div class="icon-base">
+                <div class="icon-wrap">
+                  <div class="icon email"></div>
+                  <div class="check-text">info@mahirag.xyz</div>
+                </div>
+                <!--
+                <div class="icon-wrap">
+                  <div class="icon phone"></div>
+                  <div class="check-text"></div>
+                </div>-->
+              </div>
+            </div>
+            <div class="column">
+              <div class="form-block-3 w-form">
+                <form action="https://formsubmit.co/el/kegewi" method="POST">
+                  <div class="w-layout-grid field-grid-fizz">
+                    <div class="field-wrap-fizz">
+                      <label for="Name-Fizz" class="detail">Name</label>
+                      <input
+                        class="text-field-fizz w-input"
+                        maxlength="256"
+                        name="name"
+                        placeholder="Your name"
+                        type="text"
+                        id="Name-Fizz"
+                        required
+                      />
+                    </div>
+                    <div class="field-wrap-fizz">
+                      <label for="Email-Fizz" class="detail">Email</label>
+                      <input
+                        class="text-field-fizz w-input"
+                        maxlength="256"
+                        name="email"
+                        placeholder="example@email.com"
+                        type="email"
+                        id="Email-Fizz"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="field-wrap">
+                    <label for="Message-Small" class="detail">Message</label>
+                    <input
+                      class="text-field-fizz w-input"
+                      maxlength="256"
+                      name="message"
+                      placeholder="Hi there.."
+                      type="text"
+                      id="Message-Small"
+                      required
+                    />
+                  </div>
+                  <div class="button-wrap">
+                    <button type="submit" class="main-button-n w-inline-block">
+                      <div class="button-bg">
+                        <div class="button-inside">Say hello!</div>
+                      </div>
+                      <div class="border-gradient"></div>
+                    </button>
+                  </div>
+                </form>
+
+                <div class="w-form-done">
+                  <div>Thank you! Your submission has been received!</div>
+                </div>
+                <div class="w-form-fail">
+                  <div>
+                    Oops! Something went wrong while submitting the form.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="section-footer">
+      <div class="container-large-6">
+        <div class="footer-wrapper">
+          <img
+            src="public/images/Mahirag-nav-logo.png"
+            loading="lazy"
+            alt=""
+            class="footer-logo"
+          />
+          <div class="footer-link-wrapper">
+            <a href="#Services" class="footer-link-2 w-inline-block">
+              <div>Our Experties</div> </a
+            ><a href="#" target="_blank" class="footer-link-2 w-inline-block">
+              <div>Our Team</div> </a
+            ><a href="#" class="footer-link-2 w-inline-block">
+              <div>testimonails</div> </a
+            ><a href="#About" class="footer-link-2 w-inline-block">
+              <div>about us</div>
+            </a>
+          </div>
+          <p class="paragraph-footer">© 2025 Mahirag. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script id="sf-script">
+      (function () {
+        document.addEventListener("DOMContentLoaded", async () => {
+          const sf_slideshow = document.querySelector(".sf-slides");
+          const sf_slides = document.querySelectorAll(".sf-slides li");
+          const sf_prevButton = document.querySelector(".sf-prev-button");
+          const sf_nextButton = document.querySelector(".sf-next-button");
+          const sf_playButtons = document.querySelectorAll(".sf-play-button");
+          let sf_currentIndex = 0;
+          let sf_isDragging = false;
+          let sf_startPos = 0;
+          let sf_currentTranslate = 0;
+          let sf_prevTranslate = 0;
+          let sf_animationID;
+
+          async function sf_updateVideoContainers() {
+            const promises = Array.from(sf_slides).map((slide) => {
+              return new Promise((resolve) => {
+                const video = slide.querySelector("video");
+                const container = slide.querySelector(".sf-video-container");
+                // Set fallback dimensions to prevent zero offsetWidth
+                container.style.width = `${window.innerWidth * 0.8}px`;
+                container.style.height = `${window.innerHeight * 0.8}px`;
+                if (video.readyState >= 2) {
+                  // Metadata already loaded
+                  const aspectRatio = video.videoWidth / video.videoHeight;
+                  const maxWidth = window.innerWidth * 0.8;
+                  const maxHeight = window.innerHeight * 0.8;
+                  let width = video.videoWidth;
+                  let height = video.videoHeight;
+
+                  if (width > maxWidth) {
+                    width = maxWidth;
+                    height = width / aspectRatio;
+                  }
+                  if (height > maxHeight) {
+                    height = maxHeight;
+                    width = height * aspectRatio;
+                  }
+
+                  container.style.width = `${width}px`;
+                  container.style.height = `${height}px`;
+                  resolve();
+                } else {
+                  video.addEventListener(
+                    "loadedmetadata",
+                    () => {
+                      const aspectRatio = video.videoWidth / video.videoHeight;
+                      const maxWidth = window.innerWidth * 0.8;
+                      const maxHeight = window.innerHeight * 0.8;
+                      let width = video.videoWidth;
+                      let height = video.videoHeight;
+
+                      if (width > maxWidth) {
+                        width = maxWidth;
+                        height = width / aspectRatio;
+                      }
+                      if (height > maxHeight) {
+                        height = maxHeight;
+                        width = height * aspectRatio;
+                      }
+
+                      container.style.width = `${width}px`;
+                      container.style.height = `${height}px`;
+                      resolve();
+                    },
+                    { once: true }
+                  );
+                }
+              });
+            });
+            await Promise.all(promises);
+          }
+
+          function sf_updateSlideshow() {
+            const slideWidths = Array.from(sf_slides).map(
+              (slide) => slide.offsetWidth + 24
+            );
+            const containerWidth = document.querySelector(
+              ".sf-slideshow-container"
+            ).offsetWidth;
+
+            const previousSlidesWidth = slideWidths
+              .slice(0, sf_currentIndex)
+              .reduce((a, b) => a + b, 0);
+            const currentSlideWidth = slideWidths[sf_currentIndex];
+            const slideCenter = previousSlidesWidth + currentSlideWidth / 2;
+            const containerCenter = containerWidth / 2;
+            sf_currentTranslate = containerCenter - slideCenter;
+
+            sf_slideshow.style.transform = `translateX(${sf_currentTranslate}px)`;
+
+            sf_slides.forEach((slide, index) => {
+              slide.classList.toggle("active", index === sf_currentIndex);
+            });
+          }
+
+          function sf_nextSlide() {
+            if (sf_currentIndex < sf_slides.length - 1) {
+              sf_currentIndex++;
+            } else {
+              sf_currentIndex = 0;
+            }
+            sf_updateSlideshow();
+          }
+
+          function sf_prevSlide() {
+            if (sf_currentIndex > 0) {
+              sf_currentIndex--;
+            } else {
+              sf_currentIndex = sf_slides.length - 1;
+            }
+            sf_updateSlideshow();
+          }
+
+          sf_playButtons.forEach((button, index) => {
+            const video = sf_slides[index].querySelector("video");
+            button.addEventListener("click", (e) => {
+              e.stopPropagation();
+              if (video.paused) {
+                video.play();
+                button.textContent = "Pause";
+              } else {
+                video.pause();
+                button.textContent = "Play";
+              }
+            });
+          });
+
+          sf_slideshow.addEventListener("mousedown", sf_startDragging);
+          sf_slideshow.addEventListener("touchstart", sf_startDragging);
+          sf_slideshow.addEventListener("mousemove", sf_drag);
+          sf_slideshow.addEventListener("touchmove", sf_drag);
+          sf_slideshow.addEventListener("mouseup", sf_stopDragging);
+          sf_slideshow.addEventListener("touchend", sf_stopDragging);
+          sf_slideshow.addEventListener("mouseleave", sf_stopDragging);
+
+          function sf_startDragging(e) {
+            if (e.target.classList.contains("sf-play-button")) {
+              return;
+            }
+            sf_isDragging = true;
+            sf_startPos = sf_getPositionX(e);
+            sf_slideshow.style.cursor = "grabbing";
+            sf_animationID = requestAnimationFrame(sf_animation);
+          }
+
+          function sf_drag(e) {
+            if (sf_isDragging) {
+              if (e.target.classList.contains("sf-play-button")) {
+                return;
+              }
+              const currentPosition = sf_getPositionX(e);
+              const diff = currentPosition - sf_startPos;
+              sf_slideshow.style.transform = `translateX(${
+                sf_prevTranslate + diff
+              }px)`;
+            }
+          }
+
+          function sf_stopDragging() {
+            if (sf_isDragging) {
+              sf_isDragging = false;
+              sf_slideshow.style.cursor = "grab";
+              cancelAnimationFrame(sf_animationID);
+
+              const slideWidths = Array.from(sf_slides).map(
+                (slide) => slide.offsetWidth + 24
+              );
+              const movedBy = sf_currentTranslate - sf_prevTranslate;
+              const threshold = slideWidths[sf_currentIndex] / 2;
+
+              if (
+                movedBy < -threshold &&
+                sf_currentIndex < sf_slides.length - 1
+              ) {
+                sf_currentIndex++;
+              } else if (movedBy > threshold && sf_currentIndex > 0) {
+                sf_currentIndex--;
+              }
+              sf_prevTranslate = sf_currentTranslate;
+              sf_updateSlideshow();
+            }
+          }
+
+          function sf_animation() {
+            if (sf_isDragging) {
+              requestAnimationFrame(sf_animation);
+            }
+          }
+
+          function sf_getPositionX(e) {
+            return e.type.includes("mouse") ? e.pageX : e.touches[0].clientX;
+          }
+
+          // Initialize slideshow after all video metadata is loaded
+          await sf_updateVideoContainers();
+          sf_updateSlideshow();
+
+          // Debounced resize handler
+          let resizeTimeout;
+          window.addEventListener("resize", () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(async () => {
+              await sf_updateVideoContainers();
+              sf_updateSlideshow();
+            }, 100);
+          });
+
+          sf_nextButton.addEventListener("click", sf_nextSlide);
+          sf_prevButton.addEventListener("click", sf_prevSlide);
+        });
+      })();
+    </script>
+  </body>
+</html>
