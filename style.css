@@ -330,33 +330,6 @@ label {
   outline: 0;
 }
 
-/* These styles only apply on screens 991px or smaller (standard for tablets and phones) */
-@media screen and (max-width: 991px) {
-  /* --- Default Menu State (Hidden) --- */
-  .nav-menu-2 {
-    /* Position the menu off-screen to the right */
-    transform: translateX(100%);
-
-    /* Add a smooth transition for the transform property */
-    transition: transform 0.4s ease-in-out;
-
-    /* Ensure the menu is a block element and positioned correctly */
-    /* This creates the slide-out panel effect */
-    display: block;
-    position: fixed;
-    top: 0;
-    right: 0;
-    height: 100vh; /* Full screen height */
-    width: 70%;
-    max-width: 320px;
-    background-color: #ffffff; /* A white background */
-    padding-top: 50px; /* Space for links */
-    box-shadow: -3px 0 15px rgba(0, 0, 0, 0.1); /* A subtle shadow for depth */
-  }
-
-  /* --- Open Menu State (Visible) --- */
-  /* This style applies ONLY when the menu has the '.is-open' class */
-}
 
 .w-nav[data-collapse="all"] .w-nav-menu {
   display: none;
@@ -1805,7 +1778,7 @@ p {
     padding: 20px 0;
   }
 
-  .nav-menu-2.open {
+  .w-nav[data-collapse="medium"] .nav-menu-2.open {
     display: flex;
   }
 

@@ -260,6 +260,16 @@ document.addEventListener("DOMContentLoaded", async () => {
         slideshow.addEventListener("mouseleave", stopDragging);
     }
 
+    /* Nav Menu */
+    const menuButton = document.querySelector('.menu-button');
+    const navMenu = document.querySelector('.nav-menu-2');
+
+    if (menuButton && navMenu) {
+        menuButton.addEventListener('click', function () {
+            navMenu.classList.toggle('open');
+        });
+    }
+
     /* Initialize Slideshows */
     createSlideshow(
         "hs",
