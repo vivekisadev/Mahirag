@@ -4,74 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mahirag - Team</title>
-    <style id="loader">
-      .loader {
-        z-index: 10000;
-        background-color: #f5f5f5;
-        position: fixed;
-        inset: 0;
-        padding: 20px;
-        display: block;
-        transform: translateY(0);
-      }
-
-      .loader.slide-up {
-        transform: translateY(-100%);
-        transition: transform 0.7s ease-in-out;
-      }
-
-      .loader_container {
-        flex-flow: column;
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        position: absolute;
-        inset: 0;
-      }
-
-      .liquid-text {
-        font-family: "Lemon/Milk", sans-serif;
-        font-size: 2.5rem;
-        color: transparent;
-        display: flex;
-      }
-
-      .liquid-text span {
-        display: inline-block;
-        animation: liquidWave 1.6s infinite ease-in-out;
-        /* Loop animation */
-        animation-delay: calc(var(--i) * 0.1s);
-      }
-
-      /* Stop animation when slide-up starts */
-      .loader.slide-up .liquid-text span {
-        transform: translateY(0) scale(1);
-        /* Freeze at final state */
-        color: transparent;
-        /* Match final keyframe state */
-      }
-
-      @keyframes liquidWave {
-        0%,
-        100% {
-          transform: translateY(0) scale(1);
-          color: transparent;
-        }
-
-        50% {
-          transform: translateY(-10px) scale(1);
-          color: #000000;
-          -webkit-text-stroke: 0;
-          text-shadow: 0 0 10px #050108, 0 0 20px #060208;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .liquid-text {
-          font-size: 1.5rem;
-        }
-      }
-    </style>
     <link rel="stylesheet" href="style.css" />
     <link
       href="public/images/Mahirag-logo1.png"
@@ -148,35 +80,6 @@
             <div class="button-inside">Socials</div>
           </div>
           <div class="border-gradient"></div>
-          <div class="w-embed">
-            <style>
-              @keyframes spin {
-                0% {
-                  transform: rotate(0deg);
-                }
-
-                100% {
-                  transform: rotate(360deg);
-                }
-              }
-
-              .border-gradient {
-                animation: spin 3s linear infinite;
-                background: conic-gradient(
-                  from 0 at 50% 50%,
-                  rgba(255, 255, 255, 0.5) 0deg,
-                  rgba(255, 255, 255, 0) 60deg,
-                  rgba(255, 255, 255, 0) 310deg,
-                  rgba(255, 255, 255, 0.5) 360deg
-                );
-              }
-
-              .main-button-n:hover .border-gradient {
-                animation-duration: 3s;
-                animation-play-state: running;
-              }
-            </style>
-          </div>
         </a>
       </div>
     </div>
@@ -192,6 +95,16 @@
             loader.style.display = "none";
           }, 1000); // Matches 1s transition in CSS
         }, 2300); // 1.6s animation + 0.7s delay for last letter
+      });
+    </script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const menuButton = document.querySelector('.menu-button');
+        const navMenu = document.querySelector('.nav-menu-2');
+
+        menuButton.addEventListener('click', function () {
+          navMenu.classList.toggle('open');
+        });
       });
     </script>
   </body>
